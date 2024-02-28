@@ -1,55 +1,47 @@
-import './App.css';
-import lake from "./image/lake.JPG";
-import GallaryFooter from './components/GallaryFooter';
 
-const imageData = [
-  {
-    id:1,
-    img:lake 
-  },
-  {
-    id:2,
-    img:lake
-  },
-  {
-    id:3,
-    img:lake
-  },
-  {
-    id:4,
-    img:lake
-  }
-]
+
+import './App.css';
+import elephant from "./image/lake.jpg";
+
+const imageData = ()=>{
+  let data = [
+    {
+      id:1,
+      img:elephant
+    },
+    {
+      id:2,
+      img:elephant
+    },
+    {
+      id:3,
+      img:elephant
+    },
+    {
+      id:4,
+      img:elephant
+    }
+  ]
+  return data;
+}
 
 function App() {
-  return (
+  // code here
+  const imgData = imageData();
+  return(
     <div>
-      <header>
-        <img className="logo" src="https://s3.ap-south-1.amazonaws.com/kalvi-education.github.io/front-end-web-development/Kalvium-Logo.png" alt=""></img>
-        <nav>
-          <ul className='nav_links'>
-            <li><a href='#'>Home</a></li>
-            <li><a href='#'>About</a></li>
-            <li><a href='#'>More</a></li>
-          </ul>
-
-        </nav>
-        <a className='cta' href='#'><button>Contact</button></a>
-      </header>
-
-      <div>
+      <h1>Kalvium Gallery</h1>
+      <div className="row">
         {
-          imageData.map(image=>{
+          imageData().map((img) => {
             return(
-              <div key={image.id} className="column">
-                <img src={image.img} alt=""></img>
+              <div className= "column" key={img.id}>
+                <img src={img.img} alt=""/>
               </div>
             )
           })
         }
       </div>
-      {/* adding footer component */}
-      <GallaryFooter/> 
     </div>
   )
 }
